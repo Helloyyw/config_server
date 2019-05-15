@@ -21,3 +21,5 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ccxm.microservicesapi.entity
+bus:
+  test: holee
