@@ -1,21 +1,27 @@
-zuul:
-  routes:
-    demo-dept: /ccc/**
-  sensitive-headers:
- ribbon:
-  ReadTimeout: 60000
-  ConnectTimeout: 60000
-
-
 server:
   port: 7000
+  #给路由加一个名字但是以前默认的访问的微服务名字还是能继续访问除法关掉它
+zuul:
+  routes:
+  #  microservice-dept: /aaa/** #这是第一种改名字的方法
+    #第二种
+   bbb:
+     path: /bbb/**
+     serviceId: microservice-dept
+# 禁止配置路由的访问路径
+  ignored-patterns:
+    - /**/microservice-dept/zuulTest
+  sensitive-headers: # 获取cookies()这个配置表示放过敏感头信息
+
+
+#服务注册与发现，这里是客户端
 eureka:
   client:
     service-url:
       defaultZone: http://xmcc.jyqs.com:7001/eureka/
 spring:
   application:
-    name: zuul-server
+    name: zuul-server #指定服务名
     #拉取git上的配置文件
   cloud:
     config:
@@ -44,3 +50,9 @@ spring:
 #  mapper-locations: classpath:mapper/*.xml
 #  type-aliases-package: com.ccxm.microservicesapi.entity
 
+# 查看当前所有路由匹配规则
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
