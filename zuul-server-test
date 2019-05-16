@@ -3,7 +3,7 @@ server:
   #给路由加一个名字但是以前默认的访问的微服务名字还是能继续访问除法关掉它
 zuul:
   routes:
-  #  microservice-dept: /aaa/** #这是第一种改名字的方法
+  #  microservice-dept: /ccc/** #这是第一种改名字的方法
     #第二种
    bbb:
      path: /bbb/**
