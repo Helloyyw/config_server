@@ -1,4 +1,10 @@
-
+zuul:
+  routes:
+    demo-dept: /ccc/**
+  sensitive-headers:
+ ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 
 
 server:
