@@ -1,0 +1,40 @@
+
+
+
+server:
+  port: 7000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://xmcc.jyqs.com:7001/eureka/
+spring:
+  application:
+    name: zuul-server
+    #拉取git上的配置文件
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config  #是config-server的名字
+      profile: test     #拉取的配置文件名= （spring:application:name）microservice-dept + profile:的值
+#  druid:
+#    url: jdbc:mysql://localhost:3306/dept?useUnicode=true&characterEncoding=UTF-8&&useSSL=false
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    # 初始化大小，最小，最大
+#    initialSize: 5
+#    minIdle: 5
+#    maxActive: 20
+#    # 配置获取连接等待超时的时间
+#    maxWait: 60000
+  #使用虚拟机中的docker
+  rabbitmq:
+    host: 192.168.1.121
+    port: 5672
+    username: guest
+    password: guest
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.ccxm.microservicesapi.entity
+
