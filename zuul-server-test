@@ -6,7 +6,7 @@ zuul:
   #  microservice-dept: /ccc/** #这是第一种改名字的方法
     #第二种
    bbb:
-     path: /bbb/**
+     path: /ccc/**
      serviceId: microservice-dept
 # 禁止配置路由的访问路径
   ignored-patterns:
